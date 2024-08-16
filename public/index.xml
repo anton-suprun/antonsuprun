@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anton Suprun</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Anton Suprun</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>© 2024 - antonsuprun.com</copyright>
+    <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Workspace navigation with tmux&#43;fzf</title>
+      <link>http://localhost:1313/content/post/tmux-fzf-manage-workspaces/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/content/post/tmux-fzf-manage-workspaces/</guid>
+      <description>Recently I&amp;rsquo;ve been exploring using tmux and fzf for a workspace management. I wanted a quick way to navigate and jump between projects. Here is what I came up with.&#xA;Prerequisites Before you can use this workspace navigator, ensure you have the following installed:&#xA;tmux - a terminal multiplexer fzf - a command-line fuzzy finder fd - a simple, fast alternative to find Note: You&amp;rsquo;ll need to have tmux running to use the display-popup command.</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>Hi,&#xA;I&amp;rsquo;m Anton.&#xA;I&amp;rsquo;m a software engineer, currently working at Amazon in Toronto. My focus is on data privacy. I develop authorization and access management microservices. Working mainly with Java, Typescript and AWS&#xA;Before Amazon, I worked at Nesto in Montreal, where I designed and built an AI-powered tool for automatic document verification using Go. I&amp;rsquo;ve also completed co-op terms at Wealthsimple, Amazon and PointClickCare. By some miracle, I&amp;rsquo;ve consistently had the luck of getting to work on rather exciting and challenging green-field projects; I hope this luck follows me into every job I ever have because I&amp;rsquo;m passionate about building impactful projects.</description>
+    </item>
+  </channel>
+</rss>

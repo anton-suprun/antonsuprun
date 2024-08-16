@@ -1,0 +1,73 @@
+baseURL = "https://antonsuprun.com/"
+author = "Anton Suprun"
+copyright = "© 2024 - antonsuprun.com"
+paginate = 3
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+# prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
+# See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
+ignoreErrors = ["error-remote-getjson"]
+
+# ------------------------------
+theme = "paper"
+title = "Anton Suprun"
+
+[params]
+  color = 'linen'
+
+  linkedin = 'antonsuprun'
+  github = 'anton-suprun'
+
+  avatar = 'https://media.licdn.com/dms/image/v2/C5603AQFDkkWHE68A6Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1582561684158?e=1729123200&v=beta&t=8i7_4KcMOQh8EBqyZDeTUmf4-KsWAKzf0PvWvAGpka0'
+  name = 'Anton Suprun'
+  bio = 'Software Engineer'
+# ------------------------------
+
+# needed to  render raw HTML (e.g. <sub>, <sup>, <kbd>, <mark>)
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+#  [markup.highlight]
+#    lineNos = true
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true
