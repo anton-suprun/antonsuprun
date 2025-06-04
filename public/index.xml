@@ -2,26 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Anton Suprun</title>
-    <link>http://localhost:1313/</link>
+    <link>https://antonsuprun.com/</link>
     <description>Recent content on Anton Suprun</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© 2024 - antonsuprun.com</copyright>
-    <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://antonsuprun.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learn Touch Typing - It&#39;s Worth It</title>
+      <link>https://antonsuprun.com/content/post/learn-touch-typing/</link>
+      <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://antonsuprun.com/content/post/learn-touch-typing/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Originally published on the &lt;a href=&#34;https://www.typequicker.com/blog/learn-touch-typing&#34;&gt;TypeQuicker Blog&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;This is a short, personal story about my typing journey&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;I started learning touch typing near the end of my first year of computer science. This was my second degree as I had already done engineering before.&lt;/p&gt;&#xA;&lt;p&gt;I wasn&amp;rsquo;t able to get a tech internship the first summer after one year of computer science despite countless applications and thoughtful DMs to recruiters.&lt;/p&gt;&#xA;&lt;p&gt;I started working for a tiling company as a labourer - it paid well and I&amp;rsquo;m glad I received this job - it was through a family friend and sometimes a job outside your career path can teach you a lot.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Workspace navigation with tmux&#43;fzf</title>
-      <link>http://localhost:1313/content/post/tmux-fzf-manage-workspaces/</link>
+      <link>https://antonsuprun.com/content/post/tmux-fzf-manage-workspaces/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/content/post/tmux-fzf-manage-workspaces/</guid>
-      <description>Recently I&amp;rsquo;ve been exploring using tmux and fzf for a workspace management. I wanted a quick way to navigate and jump between projects. Here is what I came up with.&#xA;Prerequisites Before you can use this workspace navigator, ensure you have the following installed:&#xA;tmux - a terminal multiplexer fzf - a command-line fuzzy finder fd - a simple, fast alternative to find Note: You&amp;rsquo;ll need to have tmux running to use the display-popup command.</description>
+      <guid>https://antonsuprun.com/content/post/tmux-fzf-manage-workspaces/</guid>
+      <description>&lt;p&gt;Recently I&amp;rsquo;ve been exploring using tmux and fzf for a workspace management.&#xA;I wanted a quick way to navigate and jump between projects. Here is what I came up with.&lt;/p&gt;&#xA;&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;&#xA;&lt;p&gt;Before you can use this workspace navigator, ensure you have the following installed:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/tmux/tmux/wiki&#34;&gt;tmux&lt;/a&gt; - a terminal multiplexer&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;fzf&lt;/a&gt; - a command-line fuzzy finder&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/sharkdp/fd&#34;&gt;fd&lt;/a&gt; - a simple, fast alternative to &lt;code&gt;find&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;em&gt;Note: You&amp;rsquo;ll need to have tmux running to use the &lt;code&gt;display-popup&lt;/code&gt; command.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://antonsuprun.com/about/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>Hi,&#xA;I&amp;rsquo;m Anton.&#xA;I&amp;rsquo;m a software engineer, currently working at Amazon in Toronto. My focus is on data privacy. I develop authorization and access management microservices. Working mainly with Java, Typescript and AWS&#xA;Before Amazon, I worked at Nesto in Montreal, where I designed and built an AI-powered tool for automatic document verification using Go. I&amp;rsquo;ve also completed co-op terms at Wealthsimple, Amazon and PointClickCare. By some miracle, I&amp;rsquo;ve consistently had the luck of getting to work on rather exciting and challenging green-field projects; I hope this luck follows me into every job I ever have because I&amp;rsquo;m passionate about building impactful projects.</description>
+      <guid>https://antonsuprun.com/about/</guid>
+      <description>&lt;p&gt;Hi,&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m Anton.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a software engineer, currently working at Amazon in Toronto. My focus is on data privacy. I develop authorization and access management microservices. Working mainly with Java, Typescript and AWS&lt;/p&gt;&#xA;&lt;p&gt;Before Amazon, I worked at Nesto in Montreal, where I designed and built an AI-powered tool for automatic document verification using Go. I&amp;rsquo;ve also completed co-op terms at Wealthsimple, Amazon and PointClickCare. By some miracle, I&amp;rsquo;ve consistently had the luck of getting to work on rather exciting and challenging green-field projects; I hope this luck follows me into every job I ever have because I&amp;rsquo;m passionate about building impactful projects.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
