@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="coffee">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I'm all-in on DaisyUI - Anton Suprun</title>
+    <meta name="description" content="My experience comparing DaisyUI and Shadcn for building TypeQuicker. Why I chose DaisyUI for its simplicity, no dependencies, and seamless integration.">
+    <meta name="author" content="Anton Suprun">
+    <meta property="og:title" content="Why I'm all-in on DaisyUI">
+    <meta property="og:description" content="My experience comparing DaisyUI and Shadcn for building TypeQuicker. Why I chose DaisyUI for its simplicity and no dependencies.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://antonsuprun.com/why-im-all-in-on-daisyui.html">
+    <meta property="article:published_time" content="2024-06-05">
+    <meta property="article:author" content="Anton Suprun">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Why I'm all-in on DaisyUI">
+    <meta name="twitter:description" content="My experience comparing DaisyUI and Shadcn for building TypeQuicker.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-base-100 text-base-content min-h-screen">
+    <div class="container mx-auto max-w-4xl px-8 py-16">
+        <!-- Header -->
+        <header class="mb-16">
+            <nav class="mb-10">
+                <a href="index.html" class="text-lg text-base-content/70 hover:text-primary transition-colors duration-200">← Back to posts</a>
+            </nav>
+            <h1 class="text-5xl font-bold mb-6 leading-tight text-base-content">Why I'm all-in on DaisyUI</h1>
+            <p class="text-xl text-base-content/80 mb-6 leading-relaxed">My experience comparing DaisyUI and Shadcn for building TypeQuicker</p>
+            <time class="text-lg text-base-content/50">June 5, 2024</time>
+        </header>
+
+        <!-- Content -->
+        <article class="prose prose-xl max-w-none">
+            <div class="space-y-8">
+                <p class="text-lg leading-relaxed text-base-content/80"><em>Originally published on <a href="https://dev.to/nerf_caffeine/why-im-all-in-on-daisyui-4m39" class="text-primary hover:underline">DEV Community</a></em></p>
+
+                <p class="text-lg leading-relaxed">I recently launched a site and I used a few libraries - the ones that stood out the most were shadcn and daisyui and I've completely decided to go all on DaisyUI since. This short post gives a tiny glimpse into my experience with both.</p>
+
+                <p class="text-lg leading-relaxed">Before finally deciding to launch <a href="https://www.typequicker.com" class="text-primary hover:underline">TypeQuicker</a> I tried using various CSS libraries. Whatever was the flavour of the month or whatever has been revered in the past, I tried it.</p>
+
+                <p class="text-lg leading-relaxed">I'm a perfectionist, so to be quite honest I spent way to much time on this but at least I can save you time on deciding what library to choose and why that library is DaisyUI.</p>
+
+                <p class="text-lg leading-relaxed">Since I tried most, I can give you a clear rundown on why in the end I settled on it, and why.</p>
+
+                <p class="text-lg leading-relaxed">I started with vanilla Tailwind, however I quickly realized that given all the features I want to, that unless I create my own default components (buttons, cards, etc) my project will not have a consistent UI interface and so I decided I should pick a CSS library.</p>
+
+                <p class="text-lg leading-relaxed">Queue decision paralysis.</p>
+
+                <p class="text-lg leading-relaxed">There are so many choices - I see questions like "Which CSS library should I use?", and "Is X library good for X type of website?" on various programming subreddits all the time.</p>
+
+                <p class="text-lg leading-relaxed">My approach is always choose whatever has the most support by the community and developers. I want something that will be maintained, and updated as browsers roll out changes.</p>
+
+                <p class="text-lg leading-relaxed">I started with Shadcn. Right out of the gate, setting up was a bit of a pain to be honest however they do have beautiful components; especially charts/graph. On TypeQuicker I heavily focused on having detailed statistics so this <strong>really</strong> appealed to me the most!</p>
+
+                <p class="text-lg leading-relaxed">Comparatively, out of the box DaisyUI doesn't have that many stats/graph components but it's insanely easy to set-up. This isn't really the libraries focus and over time I came to appreciate this. There are many dedicated stat libraries and I quickly realized that for stats, it's better to use a mature library that's made specifically for that purpose; I think Shadcn UI offers great out of the components but I decided on using a dedicated/mature library like recharts.</p>
+
+                <p class="text-lg leading-relaxed">For stats, I used recharts with DaisyUI classnames for colors and the result is seamless; see for yourself:</p>
+
+                <div class="my-8">
+                    <iframe src="https://player.vimeo.com/video/1090914244" width="100%" height="400" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>
+                </div>
+
+                <p class="text-lg leading-relaxed">My most favourite part about DaisyUI is that how easy it is to use in conjunction with other libraries. If you need to add DaisyUI colors or styling to other libraries, you can do so by just settings the style of that library component to use DaisyUI class names; here is an example:</p>
+
+                <div class="bg-base-300/50 p-6 rounded-lg border border-base-content/10 my-8">
+                    <pre class="text-sm font-mono text-base-content overflow-x-auto leading-relaxed"><code>            &lt;XAxis
+              xAxisId="time"
+              type="number"
+              orientation="top"
+              stroke="var(--color-primary)"
+              tick={{ fontSize: 12 }}
+              tickLine={{ stroke: "var(--color-primary)" }}
+              domain={[0, "dataMax + 50"]}
+              tickFormatter={(value) => Math.round(value).toString()}
+              allowDecimals={false}
+            &gt;
+              &lt;Label
+                value="Time (ms)"
+                position="insideTop"
+                offset={-15}
+                style={{ fill: "var(--color-primary)", fontSize: 12 }}
+              /&gt;
+            &lt;/XAxis&gt;</code></pre>
+                </div>
+
+                <p class="text-lg leading-relaxed">You can reference the default DaisyUI CSS as such: <code class="bg-base-200 px-2 py-1 rounded text-base">stroke="var(--color-primary)"</code> - this will then set the stroke color to use the DaisyUI primary color.</p>
+
+                <p class="text-lg leading-relaxed">I cannot emphasize how smooth and seamless this made front-end development for me. This was a first time where using a CSS library, at every step of discovery of new features that I felt deep appreciation for the developers who designed and built this. Thanks to DaisyUI - I can finally say I somewhat enjoy doing CSS lol. Before this, I dreaded it.</p>
+
+                <p class="text-lg leading-relaxed">Another reason I prefer DaisyUI is their discord is extremely helpful. They have a large community with lots of support, have a channel that contains past questions (which I searched through a lot) and in general, very vibrant and helpful community.</p>
+
+                <p class="text-lg leading-relaxed">They also did a comparison between DaisyUI and Shadcn; there are a lot comparisons and pros/cons (I won't dive too deep into the comparisons; you can see for yourself on their comparison page) but for me the biggest selling points right away were:</p>
+
+                <div class="my-8">
+                    <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0dns2v6pb765j8iuzq8f.png" alt="DaisyUI vs ShadCN comparison chart" class="w-full rounded-lg border border-base-content/10">
+                    <p class="text-sm text-base-content/60 italic mt-2 text-center">DaisyUI is on the left; ShadCN is on the right</p>
+                </div>
+
+                <p class="text-lg leading-relaxed">Why in a world would you want to use a CSS library, that has <strong>2MB of JavaScript??!!</strong>. Am I crazy?</p>
+
+                <p class="text-lg leading-relaxed"><strong>DaisyUI has no Javascript and no dependencies.</strong></p>
+
+                <p class="text-lg leading-relaxed">Let that sink it for a moment. NO DEPENDENCIES (Even is-even has one dependency lol)</p>
+
+                <p class="text-lg leading-relaxed">No don't get me wrong, I'm not hating on Shadcn - it's an amazing library and it very much has it 's use cases; it's specifically designed with React in mind so I think React/NextJS focused communities and devs can built complex UIs very quickly. For me that's the biggest selling point of Shadcn.</p>
+
+                <p class="text-lg leading-relaxed">However, those use-cases are not use-cases that I have. Nice thing about DaisyUI too is that you can use it in any library (or just plain html/css via cdn).</p>
+
+                <p class="text-lg leading-relaxed">To summarize, I'm betting on DaisyUI going forward - I recently had some initial subscriptions on TypeQuicker and I immediately contributed a small sum to DaisyUI's OpenCollective page. If you are using them, or want to use them, please consider contributing. From someone who's built a full project with them, their devs did an insane job. As my site grows, I'm planning on joining the monthly contribution list.</p>
+
+                <hr class="my-12 border-base-content/20">
+
+                <p class="text-lg text-base-content/70 italic">Read the original post on <a href="https://dev.to/nerf_caffeine/why-im-all-in-on-daisyui-4m39" class="text-primary hover:underline">DEV Community</a></p>
+            </div>
+        </article>
+    </div>
+</body>
+</html> 

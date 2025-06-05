@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="coffee">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace Navigation with tmux+fzf - Anton Suprun</title>
+    <meta name="description" content="A brief overview of my workspace management flow using tmux and fzf. Learn how to efficiently navigate between projects and sessions in the terminal.">
+    <meta name="author" content="Anton Suprun">
+    <meta property="og:title" content="Workspace Navigation with tmux+fzf">
+    <meta property="og:description" content="A brief overview of my workspace management flow using tmux and fzf for efficient terminal navigation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://antonsuprun.com/tmux-fzf-manage-workspaces.html">
+    <meta property="article:published_time" content="2024-08-16">
+    <meta property="article:author" content="Anton Suprun">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Workspace Navigation with tmux+fzf">
+    <meta name="twitter:description" content="A brief overview of my workspace management flow using tmux and fzf.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-base-100 text-base-content min-h-screen">
+    <div class="container mx-auto max-w-4xl px-8 py-16">
+        <!-- Header -->
+        <header class="mb-16">
+            <nav class="mb-10">
+                <a href="index.html" class="text-lg text-base-content/70 hover:text-primary transition-colors duration-200">← Back to posts</a>
+            </nav>
+            <h1 class="text-5xl font-bold mb-6 leading-tight text-base-content">Workspace Navigation with tmux+fzf</h1>
+            <p class="text-xl text-base-content/80 mb-6 leading-relaxed">A brief overview of my workspace management flow</p>
+            <time class="text-lg text-base-content/50">August 16, 2024</time>
+        </header>
+
+        <!-- Content -->
+        <article class="prose prose-xl max-w-none">
+            <div class="space-y-8">
+                <p class="text-lg leading-relaxed">Recently I've been exploring using tmux and fzf for a workspace management. I wanted a quick way to navigate and jump between projects. Here is what I came up with.</p>
+
+                <h2 class="text-3xl font-bold mt-16 mb-8 text-base-content">Prerequisites</h2>
+
+                <p class="text-lg leading-relaxed">Before you can use this workspace navigator, ensure you have the following installed:</p>
+
+                <ul class="text-lg leading-relaxed space-y-3">
+                    <li><strong>tmux</strong> - a terminal multiplexer (<a href="https://github.com/tmux/tmux/wiki" class="text-primary hover:underline">Learn more</a>)</li>
+                    <li><strong>fzf</strong> - a command-line fuzzy finder (<a href="https://github.com/junegunn/fzf" class="text-primary hover:underline">Learn more</a>)</li>
+                    <li><strong>fd</strong> - a simple, fast alternative to find (<a href="https://github.com/sharkdp/fd" class="text-primary hover:underline">Learn more</a>)</li>
+                </ul>
+
+                <p class="text-lg leading-relaxed"><em>Note: You'll need to have tmux running to use the display-popup command.</em></p>
+
+                <h2 class="text-3xl font-bold mt-16 mb-8 text-base-content">Configuration</h2>
+
+                <p class="text-lg leading-relaxed">Add this snippet to your <code class="bg-base-200 px-2 py-1 rounded text-base">`.tmux.conf`</code> file:</p>
+
+                <div class="bg-base-300/50 p-6 rounded-lg border border-base-content/10 my-8">
+                    <pre class="text-base font-mono text-base-content overflow-x-auto"><code>bind k display-popup -T"Workspace Navigator" -w 75% -h 40% -E "~/bin/scripts/list-workspaces"</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold mt-16 mb-8 text-base-content">The Script</h2>
+
+                <p class="text-lg leading-relaxed">Here's the script (<code class="bg-base-200 px-2 py-1 rounded text-base">list-workspaces</code>):</p>
+
+                <div class="bg-base-300/50 p-6 rounded-lg border border-base-content/10 my-8">
+                    <pre class="text-sm font-mono text-base-content overflow-x-auto leading-relaxed"><code>#!/opt/homebrew/bin/bash
+
+fd . ~/Projects -d 1 -x echo {} {/} | \
+fzf --header "session: enter  |  window: ctrl-w |  below: ctrl-j  |  above: ctrl-k  |  left: ctrl-h  |  right: ctrl-l" \
+    --reverse \
+    --margin 0% \
+    --padding 0% \
+    --with-nth=2 \
+    --bind='enter:become(tmux has -t={2} 2>/dev/null || tmux new -ds {2} -c {1} && tmux switchc -t={2})' \
+    --bind='ctrl-w:become(tmux neww -c {1} -n {2})' \
+    --bind='ctrl-l:become(tmux splitw -c {1} -h)' \
+    --bind='ctrl-h:become(tmux splitw -c {1} -hb)' \
+    --bind='ctrl-j:become(tmux splitw -c {1} -v)' \
+    --bind='ctrl-k:become(tmux splitw -c {1} -vb)'</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold mt-16 mb-8 text-base-content">How It Works</h2>
+
+                <p class="text-lg leading-relaxed">This script uses fd to list directories in the ~/Projects folder, then pipes the output to fzf for interactive filtering. It allows you to create or switch to tmux sessions, create new windows, and split panes in various directions using keyboard shortcuts.</p>
+
+                <h3 class="text-2xl font-semibold mt-12 mb-6 text-base-content">Keyboard Shortcuts</h3>
+
+                <p class="text-lg leading-relaxed"><kbd class="bg-base-300 px-3 py-1 rounded text-sm">Enter</kbd> - Create/switch to session</p>
+                <p class="text-lg leading-relaxed"><kbd class="bg-base-300 px-3 py-1 rounded text-sm">Ctrl+W</kbd> - New window</p>
+                <p class="text-lg leading-relaxed"><kbd class="bg-base-300 px-3 py-1 rounded text-sm">Ctrl+J</kbd> - Split below</p>
+                <p class="text-lg leading-relaxed"><kbd class="bg-base-300 px-3 py-1 rounded text-sm">Ctrl+K</kbd> - Split above</p>
+                <p class="text-lg leading-relaxed"><kbd class="bg-base-300 px-3 py-1 rounded text-sm">Ctrl+H</kbd> - Split left</p>
+                <p class="text-lg leading-relaxed"><kbd class="bg-base-300 px-3 py-1 rounded text-sm">Ctrl+L</kbd> - Split right</p>
+
+                <h2 class="text-3xl font-bold mt-16 mb-8 text-base-content">Benefits</h2>
+
+                <p class="text-lg leading-relaxed">This has become my go-to approach for workspace navigation. It's especially useful in my job, where I work with many packages and microservices; being able to quickly jump between them makes this script a huge time-saver.</p>
+
+                <p class="text-lg leading-relaxed"><strong>Fast Navigation</strong> - Quickly switch between projects without leaving your terminal</p>
+                <p class="text-lg leading-relaxed"><strong>Flexible Layout</strong> - Create sessions, windows, or split panes in any direction</p>
+                <p class="text-lg leading-relaxed"><strong>Microservices Ready</strong> - Perfect for environments with multiple packages and services</p>
+                <p class="text-lg leading-relaxed"><strong>Session Management</strong> - Automatically creates or switches to existing tmux sessions</p>
+
+                <p class="text-lg leading-relaxed">Try using this workspace navigator and let me know what you think! It might just transform how you navigate your development environment.</p>
+            </div>
+        </article>
+    </div>
+</body>
+</html> 
